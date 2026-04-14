@@ -1,6 +1,6 @@
 // In local development, the Vite proxy handles routing.
 // In production, we use the live Render backend URL.
-let API_BASE = import.meta.env.VITE_API_BASE_URL || "https://backend-analyzer-1.onrender.com";
+let API_BASE = import.meta.env.VITE_API_BASE_URL || "";
 // Ensure No Trailing Slash
 if (API_BASE.endsWith("/")) {
   API_BASE = API_BASE.slice(0, -1);
