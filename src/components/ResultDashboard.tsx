@@ -92,18 +92,6 @@ const ResultDashboard = ({ result }: ResultDashboardProps) => {
         totalPercentage={result.risk_percentage} 
       />
 
-      {/* OCR preview if image */}
-      {result.ocr_extracted_text_preview && (
-        <div className="rounded-lg cyber-border bg-card p-5 space-y-2 animate-fade-in-up">
-          <h3 className="text-sm font-mono text-accent flex items-center gap-2">
-            <FileText className="w-4 h-4" /> OCR EXTRACTED TEXT
-          </h3>
-          <p className="text-xs font-mono text-muted-foreground leading-relaxed bg-secondary/50 p-3 rounded max-h-32 overflow-y-auto">
-            {result.ocr_extracted_text_preview}
-          </p>
-        </div>
-      )}
-
       <div className="grid md:grid-cols-2 gap-5">
         <PermissionList permissions={result.permissions_detected} />
         <KeywordList keywords={result.risky_keywords_detected} />
@@ -175,10 +163,9 @@ const ResultDashboard = ({ result }: ResultDashboardProps) => {
                 <div className="space-y-4">
                    <p className="text-xs text-muted-foreground leading-relaxed bg-secondary/20 p-4 rounded italic">
                       The analyzer processed {result.stats.words_analyzed} words to determine the risk level. 
-                      You can review the extracted text preview below.
                    </p>
                    <div className="p-4 rounded border border-border bg-background text-xs leading-relaxed max-h-64 overflow-y-auto whitespace-pre-wrap">
-                      {result.ocr_extracted_text_preview || "Privacy policy text content analysis complete."}
+                      Privacy policy text content analysis complete.
                    </div>
                 </div>
              )}

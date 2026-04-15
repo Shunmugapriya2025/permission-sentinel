@@ -162,7 +162,7 @@ function normalise(raw: BackendResponse): AnalysisResult {
 }
 
 export async function analyzePermissions(
-  input: { type: "text"; text: string; appName: string } | { type: "image"; file: File; appName: string }
+  input: { text: string; appName: string }
 ): Promise<AnalysisResult> {
   const formData = new FormData();
 
@@ -170,11 +170,7 @@ export async function analyzePermissions(
     formData.append("app_name", input.appName);
   }
 
-  if (input.type === "text") {
-    formData.append("text", input.text);
-  } else {
-    formData.append("image", input.file);
-  }
+  formData.append("text", input.text);
 
   const response = await fetch(`${API_BASE}/analyze`, {
     method: "POST",
