@@ -79,12 +79,12 @@ const Index = () => {
           <p className="text-xs text-muted-foreground font-mono">
             © 2026 Permission Analyzer • Built by{" "}
             <a 
-              href="https://github.com/rakavip2-bot" 
+              href="https://github.com/shunmugapriya2-bot" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-primary hover:underline"
             >
-              @rakavip2-bot
+              @shunmugapriya2-bot
             </a>
           </p>
         </footer>
