@@ -6,6 +6,7 @@ import KeywordList from "./KeywordList";
 import Recommendations from "./Recommendations";
 import AIExplanation from "./AIExplanation";
 import RiskBreakdown from "./RiskBreakdown";
+import RiskDistribution from "./RiskDistribution";
 import { Copy, Check, FileText, X, AlertOctagon } from "lucide-react";
 import { useState } from "react";
 import {
@@ -101,6 +102,10 @@ const ResultDashboard = ({ result }: ResultDashboardProps) => {
         score={result.risk_score} 
         summary={result.summary} 
       />
+
+      {result.risk_summary && (
+        <RiskDistribution summary={result.risk_summary} />
+      )}
 
       <StatsPanel 
         stats={result.stats} 

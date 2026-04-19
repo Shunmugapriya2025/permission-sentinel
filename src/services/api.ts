@@ -58,6 +58,11 @@ export interface AnalysisResult {
   };
   ocr_extracted_text_preview?: string;
   app_status_flag?: string;
+  risk_summary?: {
+    low: number;
+    medium: number;
+    high: number;
+  };
 }
 
 // Raw shape returned by the FastAPI backend
@@ -107,6 +112,11 @@ interface BackendResponse {
   detected_content_type?: string;
   risk_percentage?: number;
   risk_breakdown?: RiskBreakdown;
+  risk_summary?: {
+    low: number;
+    medium: number;
+    high: number;
+  };
 }
 
 /** Normalise the backend response into the shape the UI expects */
@@ -158,6 +168,7 @@ function normalise(raw: BackendResponse): AnalysisResult {
     },
     ocr_extracted_text_preview: raw.ocr_extracted_text_preview,
     app_status_flag: raw.app_status_flag,
+    risk_summary: raw.risk_summary,
   };
 }
 
