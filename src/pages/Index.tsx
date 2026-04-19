@@ -11,7 +11,7 @@ const Index = () => {
   const { toast } = useToast();
 
   const handleAnalyze = async (
-    input: { text: string; appName: string }
+    input: { text?: string; image?: File; appName: string }
   ) => {
     setLoading(true);
     setResult(null);

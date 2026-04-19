@@ -75,6 +75,27 @@ const ResultDashboard = ({ result }: ResultDashboardProps) => {
         </button>
       </div>
 
+      {/* OCR Extracted Text Preview — shown only for screenshot input */}
+      {result.ocr_extracted_text_preview && (
+        <details className="rounded-lg cyber-border bg-card group">
+          <summary className="flex items-center justify-between px-4 py-3 cursor-pointer select-none text-xs font-mono text-primary tracking-widest uppercase hover:text-primary/80">
+            <span className="flex items-center gap-2">
+              <FileText className="w-3.5 h-3.5" />
+              Text Extracted from Screenshot
+            </span>
+            <span className="text-muted-foreground text-[10px] group-open:rotate-180 transition-transform">▾</span>
+          </summary>
+          <div className="px-4 pb-4">
+            <p className="text-[11px] font-mono text-muted-foreground leading-relaxed whitespace-pre-wrap bg-background/50 rounded p-3 border border-border max-h-32 overflow-y-auto">
+              {result.ocr_extracted_text_preview}
+              {result.ocr_extracted_text_preview.length >= 600 && (
+                <span className="text-primary/50"> …(truncated)</span>
+              )}
+            </p>
+          </div>
+        </details>
+      )}
+
       <RiskCard 
         level={result.risk_level} 
         score={result.risk_score} 
